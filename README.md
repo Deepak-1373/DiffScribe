@@ -1,68 +1,86 @@
-# GitScribe
+<h1 align="center">GitScribe</h1>
 
-AI-generated pull request descriptions from your git diff.
+<p align="center">
+  <b>Generate pull request descriptions from your git diff using AI.</b>
+</p>
 
-GitScribe is a developer productivity tool that automatically generates structured GitHub Pull Request descriptions using AI. Instead of manually writing summaries of your changes, you can paste a git diff and GitScribe will generate a clean PR description including summaries, change breakdowns, testing notes, and potential risks.
+<p align="center">
+  Write better PR descriptions in seconds instead of minutes.
+</p>
 
-GitScribe is currently in public beta and focused on helping developers ship better PRs faster.
+<p align="center">
+  <img src="https://img.shields.io/badge/Next.js-16-black?style=flat-square&logo=next.js" alt="Next.js" />
+  <img src="https://img.shields.io/badge/TypeScript-5-blue?style=flat-square&logo=typescript" alt="TypeScript" />
+  <img src="https://img.shields.io/badge/Tailwind_CSS-3-38bdf8?style=flat-square&logo=tailwindcss" alt="Tailwind CSS" />
+  <img src="https://img.shields.io/badge/NextAuth-4-purple?style=flat-square" alt="NextAuth" />
+  <img src="https://img.shields.io/badge/Gemini_AI-API-orange?style=flat-square&logo=google" alt="Gemini AI" />
+  <img src="https://img.shields.io/badge/Upstash-Redis-red?style=flat-square&logo=redis" alt="Upstash Redis" />
+  <img src="https://img.shields.io/badge/Deployed_on-Vercel-black?style=flat-square&logo=vercel" alt="Vercel" />
+</p>
 
-## Why GitScribe
+---
 
-Writing pull request descriptions is repetitive and time-consuming.
+## Demo
 
-Most developers end up writing something like:
+![GitScribe Landing Page](./public/landing.png)
 
-> "misc fixes"
+![GitScribe Dashboard](./public/demo.png)
 
-or copy-pasting commit messages.
+## What GitScribe Does
 
-GitScribe converts your actual code changes into a structured PR description so reviewers can quickly understand:
+GitScribe automatically generates structured GitHub Pull Request descriptions from your git diff.
 
-- What changed
-- Why it changed
-- How to test it
-- Any risks introduced
+Instead of manually writing descriptions for every PR, developers can paste their diff and GitScribe will generate:
 
-This improves code review speed and clarity.
+- **Summary**
+- **Change breakdown**
+- **Testing instructions**
+- **Potential risks**
+
+This helps reviewers quickly understand what changed and why.
 
 ## Example Workflow
 
-Developer workflow with GitScribe:
+Run:
 
-1. `git diff origin/main`
-2. Copy the diff and paste it into GitScribe.
-3. GitScribe analyzes the changes and generates a PR description like:
+```bash
+git diff origin/main
+```
+
+Paste the diff into GitScribe and generate:
 
 ```
 ## Summary
-Implements rate limiting using Redis to prevent excessive API usage.
+Adds rate limiting to prevent excessive API usage.
 
 ## Changes
-- Added Redis client configuration
-- Implemented rate limiting middleware
-- Updated API route to enforce request limits
+- Added Redis client
+- Implemented request limiter
+- Updated API middleware
 
 ## Testing
-- Verified rate limit triggers after 20 requests
-- Confirmed Redis key expiration works correctly
+- Confirmed rate limits trigger after threshold
+- Verified Redis key expiration works correctly
 
 ## Risks
-Minimal. Limited to API request handling.
+Minimal risk as changes are isolated to API layer.
 ```
 
-The generated text can then be pasted directly into the GitHub PR description.
+Copy → paste into GitHub PR.
 
-## Current Features
+## Live Beta
 
-- GitHub OAuth authentication
-- AI-generated PR descriptions
-- Structured output for consistent pull requests
-- Daily request limits to ensure fair usage
-- Clean developer-focused UI
+GitScribe is currently in **public beta**.
+
+Try it here: **https://gitscribe.vercel.app**
+
+Beta users receive:
+
+- **20 PR generations per day**
+
+Limits exist to prevent abuse while the product is tested with real developers.
 
 ## Tech Stack
-
-GitScribe is built using a modern serverless architecture.
 
 **Frontend**
 - Next.js (App Router)
@@ -74,43 +92,35 @@ GitScribe is built using a modern serverless architecture.
 
 **Backend**
 - Next.js API routes
-- Gemini API (Google Generative AI)
+- Gemini AI API
 
 **Infrastructure**
-- Vercel (hosting)
+- Vercel hosting
 - Upstash Redis (rate limiting)
 
-## Architecture Overview
+## Architecture
 
 ```
 User
-  ↓
-Next.js Frontend
-  ↓
+ ↓
+Next.js frontend
+ ↓
 NextAuth (GitHub OAuth)
-  ↓
+ ↓
 API Route /generate
-  ↓
-Rate Limit Check (Upstash Redis)
-  ↓
+ ↓
+Rate Limiter (Upstash Redis)
+ ↓
 Gemini AI
-  ↓
+ ↓
 Generated PR Description
 ```
 
-The system is fully serverless and designed to scale without managing infrastructure.
-
-## Rate Limiting (Beta)
-
-To prevent abuse during the beta phase, GitScribe enforces a daily generation limit.
-
-**Current limit:** 20 PR generations per user per day
-
-This limit may change based on usage patterns and infrastructure scaling.
+The entire system is serverless and horizontally scalable.
 
 ## Local Development
 
-Clone the repository:
+Clone repository:
 
 ```bash
 git clone https://github.com/your-username/gitscribe.git
@@ -123,20 +133,20 @@ Install dependencies:
 npm install
 ```
 
-Create an environment file:
+Create environment variables:
 
 ```bash
 cp .env.example .env.local
 ```
 
-Add the following variables:
+Example configuration:
 
 ```
 NEXTAUTH_SECRET=your_secret
 NEXTAUTH_URL=http://localhost:3000
 
-GITHUB_ID=your_github_oauth_id
-GITHUB_SECRET=your_github_oauth_secret
+GITHUB_ID=github_oauth_client_id
+GITHUB_SECRET=github_oauth_secret
 
 GEMINI_API_KEY=your_gemini_api_key
 
@@ -144,112 +154,97 @@ UPSTASH_REDIS_REST_URL=your_upstash_url
 UPSTASH_REDIS_REST_TOKEN=your_upstash_token
 ```
 
-Run the development server:
+Run development server:
 
 ```bash
 npm run dev
 ```
 
-The application will start at: `http://localhost:3000`
+Visit: `http://localhost:3000`
 
 ## Deployment
 
-GitScribe is deployed on Vercel.
+GitScribe is deployed using **Vercel**.
 
-Steps for deployment:
+Steps:
 
-1. Push the repository to GitHub
-2. Import the project into Vercel
-3. Add required environment variables in Vercel settings
+1. Push project to GitHub
+2. Import repository into Vercel
+3. Configure environment variables
 4. Deploy
 
-Make sure to update the following in production:
+Production environment variable example:
 
 ```
-NEXTAUTH_URL=https://your-domain.vercel.app
+NEXTAUTH_URL=https://gitscribe.vercel.app
 ```
 
-GitHub OAuth callback must be set to:
+GitHub OAuth callback must be:
 
 ```
-https://your-domain.vercel.app/api/auth/callback/github
+https://gitscribe.vercel.app/api/auth/callback/github
 ```
-
-## Beta Status
-
-GitScribe is currently in public beta.
-
-During this phase we are focused on:
-
-- Gathering feedback from developers
-- Improving PR generation accuracy
-- Optimizing performance and cost efficiency
-- Expanding GitHub integrations
-
-Expect rapid iteration and frequent improvements.
 
 ## Roadmap
 
-Planned improvements include:
+Upcoming features planned for GitScribe.
 
-**GitHub Integration**
-Automatically fetch PR diffs from GitHub instead of manual copy/paste.
+**GitHub PR Integration**
+Generate descriptions directly from a PR URL. No copy-paste required.
 
 **Chrome Extension**
-Generate PR descriptions directly inside the GitHub Pull Request page.
+Generate PR descriptions inside the GitHub interface.
 
-**PR History**
-Allow users to view previously generated PR descriptions.
-
-**Team Features**
-Enable teams to standardize PR templates and generation rules.
-
-**Custom Templates**
-Support organization-specific PR formats. Example:
+**Custom PR Templates**
+Support organization-specific PR formats. Example template:
 
 ```
 Summary
 Changes
-Testing
 Screenshots
+Testing
 Checklist
 ```
 
-**Usage Analytics**
-Track usage patterns to improve the AI model and product features.
+**PR History**
+View previously generated PR descriptions.
+
+**Team Features**
+Allow teams to standardize PR formats across repositories.
 
 **Paid Plans**
-Introduce pricing tiers for higher usage limits and advanced features.
+Higher generation limits and advanced features.
 
 ## Security
 
-GitScribe does not store repository code permanently.
+GitScribe does not permanently store repository code.
 
-Code diffs submitted to the generator are:
+Diffs are:
 
-- Processed temporarily for AI generation
-- Not persisted in long-term storage
-- Not shared with third parties beyond the AI model provider
-
-Future updates will include additional privacy controls.
+- Processed temporarily
+- Used only for AI generation
+- Not stored in long-term databases
 
 ## Contributing
 
 Contributions are welcome.
 
-If you'd like to improve GitScribe:
+Steps:
 
 1. Fork the repository
-2. Create a feature branch
-3. Submit a pull request
+2. Create feature branch
+3. Submit pull request
 
-Please open an issue before making large architectural changes.
+For large changes please open an issue first.
 
 ## Feedback
 
-GitScribe is actively evolving and feedback from developers is extremely valuable.
+Developer feedback is extremely valuable during the beta phase.
 
-If you encounter issues or have feature suggestions, please open an issue in the repository.
+If you encounter issues or have feature ideas:
+
+- Open a GitHub issue
+- Share feedback through the application
 
 ## License
 
@@ -257,6 +252,8 @@ MIT License
 
 ---
 
-**Built For Developers**
+**Built for Developers**
 
-GitScribe was created to remove friction from the code review process and help developers communicate changes more effectively.
+GitScribe aims to remove friction from code reviews and improve how developers communicate code changes.
+
+If you find GitScribe useful, consider giving the repository a ⭐.
