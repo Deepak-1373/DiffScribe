@@ -249,12 +249,6 @@ function Hero() {
         }}
       />
 
-      {/* Badge */}
-      <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-emerald-500/25 bg-emerald-500/8 text-emerald-400 text-xs font-mono mb-8">
-        <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-        Now powered by Gemini 3
-      </div>
-
       <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-zinc-50 max-w-3xl leading-[1.05] mb-6">
         AI that writes your{" "}
         <span
@@ -555,7 +549,7 @@ function Footer() {
         </div>
 
         <p className="text-xs text-zinc-600 font-mono">
-          Built with Next.js · Gemini · NextAuth
+          Built with Next.js · NextAuth
         </p>
       </div>
     </footer>
