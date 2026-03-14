@@ -74,7 +74,7 @@ Copy → paste into GitHub PR.
 
 DiffScribe is currently in **public beta**.
 
-Try it here: **https://diffscribe.vercel.app**
+Try it here: **[https://diffscribe.vercel.app](https://diffscribe-neon.vercel.app/)**
 
 Beta users receive:
 
