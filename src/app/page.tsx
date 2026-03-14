@@ -42,7 +42,7 @@ const FEATURES = [
     ),
     title: "Diff-aware",
     description:
-      "GitScribe reads the actual changed lines. It names affected files and functions, not generic placeholders.",
+      "DiffScribe reads the actual changed lines. It names affected files and functions, not generic placeholders.",
   },
   {
     icon: (
@@ -167,7 +167,7 @@ function Nav({ session }: { session: Session | null }) {
           <Link href="/" className="flex items-center gap-3 hover:opacity-80 transition-opacity">
             <Logo />
             <span className="font-mono text-sm font-semibold text-zinc-100 tracking-tight">
-              gitscribe
+              DiffScribe
             </span>
           </Link>
           <span className="px-1.5 py-0.5 text-xs font-mono bg-zinc-800 text-zinc-400 rounded border border-zinc-700">
@@ -305,7 +305,7 @@ function Features() {
             Everything a good PR description needs.
           </h2>
           <p className="mt-3 text-zinc-400 text-sm leading-relaxed">
-            GitScribe doesn&apos;t just summarise — it produces the structure senior
+            DiffScribe doesn&apos;t just summarise — it produces the structure senior
             engineers expect from every pull request.
           </p>
         </div>
@@ -352,7 +352,7 @@ function Demo() {
           </h2>
           <p className="mt-3 text-zinc-400 text-sm leading-relaxed">
             A real example — the diff adds authentication middleware, and
-            GitScribe writes the full PR description automatically.
+            DiffScribe writes the full PR description automatically.
           </p>
         </div>
 
@@ -495,7 +495,7 @@ function CTA() {
           Stop writing PR descriptions manually.
         </h2>
         <p className="text-zinc-400 text-base leading-relaxed mb-10">
-          GitScribe handles the boilerplate so you can focus on the code.
+          DiffScribe handles the boilerplate so you can focus on the code.
           Connect your GitHub account and generate your first description in
           30 seconds.
         </p>
@@ -533,7 +533,7 @@ function Footer() {
       <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
         <div className="flex items-center gap-3">
           <Logo />
-          <span className="text-sm font-mono font-semibold text-zinc-400">gitscribe</span>
+          <span className="text-sm font-mono font-semibold text-zinc-400">DiffScribe</span>
         </div>
 
         <div className="flex items-center gap-6">

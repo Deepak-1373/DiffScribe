@@ -27,7 +27,7 @@ export async function Nav() {
             </svg>
           </div>
           <span className="font-mono text-sm font-semibold text-zinc-100 tracking-tight">
-            gitscribe
+            DiffScribe
           </span>
           <span className="px-1.5 py-0.5 text-xs font-mono bg-zinc-800 text-zinc-400 rounded border border-zinc-700">
             beta

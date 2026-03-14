@@ -34,7 +34,7 @@ export default async function SignInPage() {
             </div>
             <div>
               <p className="text-sm font-semibold text-zinc-100 font-mono">
-                gitscribe
+                DiffScribe
               </p>
               <p className="text-xs text-zinc-500 font-mono">
                 AI PR generator

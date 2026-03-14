@@ -22,17 +22,17 @@
 
 ## Demo
 
-![GitScribe Landing Page](./public/landing.png)
+![DiffScribe Landing Page](./public/landing.png)
 
-![GitScribe demo](./public/demo.png)
+![DiffScribe demo](./public/demo.png)
 
-![GitScribe dasboard](./public/dashboard.png)
+![DiffScribe dasboard](./public/dashboard.png)
 
-## What GitScribe Does
+## What DiffScribe Does
 
-GitScribe automatically generates structured GitHub Pull Request descriptions from your git diff.
+DiffScribe automatically generates structured GitHub Pull Request descriptions from your git diff.
 
-Instead of manually writing descriptions for every PR, developers can paste their diff and GitScribe will generate:
+Instead of manually writing descriptions for every PR, developers can paste their diff and DiffScribe will generate:
 
 - **Summary**
 - **Change breakdown**
@@ -49,7 +49,7 @@ Run:
 git diff origin/main
 ```
 
-Paste the diff into GitScribe and generate:
+Paste the diff into DiffScribe and generate:
 
 ```
 ## Summary
@@ -72,9 +72,9 @@ Copy → paste into GitHub PR.
 
 ## Live Beta
 
-GitScribe is currently in **public beta**.
+DiffScribe is currently in **public beta**.
 
-Try it here: **https://gitscribe.vercel.app**
+Try it here: **https://diffscribe.vercel.app**
 
 Beta users receive:
 
@@ -125,8 +125,8 @@ The entire system is serverless and horizontally scalable.
 Clone repository:
 
 ```bash
-git clone https://github.com/your-username/gitscribe.git
-cd gitscribe
+git clone https://github.com/your-username/diffscribe.git
+cd diffscribe
 ```
 
 Install dependencies:
@@ -166,7 +166,7 @@ Visit: `http://localhost:3000`
 
 ## Deployment
 
-GitScribe is deployed using **Vercel**.
+DiffScribe is deployed using **Vercel**.
 
 Steps:
 
@@ -178,18 +178,18 @@ Steps:
 Production environment variable example:
 
 ```
-NEXTAUTH_URL=https://gitscribe.vercel.app
+NEXTAUTH_URL=https://diffscribe.vercel.app
 ```
 
 GitHub OAuth callback must be:
 
 ```
-https://gitscribe.vercel.app/api/auth/callback/github
+https://diffscribe.vercel.app/api/auth/callback/github
 ```
 
 ## Roadmap
 
-Upcoming features planned for GitScribe.
+Upcoming features planned for DiffScribe.
 
 **GitHub PR Integration**
 Generate descriptions directly from a PR URL. No copy-paste required.
@@ -219,7 +219,7 @@ Higher generation limits and advanced features.
 
 ## Security
 
-GitScribe does not permanently store repository code.
+DiffScribe does not permanently store repository code.
 
 Diffs are:
 
@@ -256,6 +256,6 @@ MIT License
 
 **Built for Developers**
 
-GitScribe aims to remove friction from code reviews and improve how developers communicate code changes.
+DiffScribe aims to remove friction from code reviews and improve how developers communicate code changes.
 
-If you find GitScribe useful, consider giving the repository a ⭐.
+If you find DiffScribe useful, consider giving the repository a ⭐.

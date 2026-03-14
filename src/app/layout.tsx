@@ -3,7 +3,7 @@ import "./globals.css";
 import { SessionProvider } from "@/components/providers/session-provider";
 
 export const metadata: Metadata = {
-  title: "GitScribe — AI PR Description Generator",
+  title: "DiffScribe — AI PR Description Generator",
   description:
     "Paste a git diff and get a professional pull request description in seconds.",
 };
