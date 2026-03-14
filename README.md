@@ -1,4 +1,4 @@
-<h1 align="center">GitScribe</h1>
+<h1 align="center">DiffScribe</h1>
 
 <p align="center">
   <b>Generate pull request descriptions from your git diff using AI.</b>
